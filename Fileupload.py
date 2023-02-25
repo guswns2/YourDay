@@ -10,7 +10,7 @@ pymysql.install_as_MySQLdb()
 dt_now = datetime.now()
 
 app = Flask(__name__)
-
+#
 # 파일 업로드 처리
 @app.route('/fileUpload', methods = ['GET', 'POST'])
 def upload_file():
