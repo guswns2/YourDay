@@ -1,0 +1,47 @@
+@font-face {
+    /* 사용할 폰트의 이름 */
+    font-family: 'NanumSquareRoundB';
+    font-display: fallback;
+  
+    /* 
+    src: 사용할 폰트의 위치 및 형식 
+       Safari, Android, iOS => ttf
+       Modern Browsers => woff
+       IE6-IE8 => eot
+    */
+    /* src: url("./NanumSquareRoundB.eot?iefix") format("embedded-opentype"); */
+
+    src: url("./NanumSquareRoundB.ttf") format("truetype");
+    /* src: url("./NanumSquareRoundB.woff") format("woff"); */
+  
+    /* 사용할 폰트의 기본 스타일 */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+ h1{
+    font-family: "NanumSquareRoundB";
+    margin: 20px 10px 20px 0px;
+ }
+  
+
+.card-title {
+  font-family: "NanumSquareRoundB";
+}
+.card-category{
+    font-family: "NanumSquareRoundB";
+}
+
+.calendarFont{
+   font-family: "NanumSquareRoundB";
+}
+
+.mypageFont{
+   font-family: "NanumSquareRoundB";
+
+}
+
+.font{
+   font-family: "NanumSquareRoundB";
+
+}
