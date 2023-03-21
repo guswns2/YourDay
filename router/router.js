@@ -14,6 +14,7 @@ let conn = mysql.createConnection({
     password: "smhrd4",
     port: "3307",
     database: "campus_h_1024_4",
+    dateStrings:"date"
 });
 
 // 메인페이지 심박수
@@ -124,6 +125,33 @@ router.post('/Dashboard6', (req,res) => {
     }
  })
 });
+
+// 캘린더 DB에서 업로드 날짜 가져오기
+router.post('/uploadDate', (req,res) => {
+  let arr_date=[];
+  let id = req.body.id;
+
+  let sql = 'SELECT upload_date FROM calendar_upload WHERE id = ?'
+  conn.query(sql, [id], function (err, rows) {
+    if (!err) {
+      // err에 아무런 값이 없으면
+      if (rows == "undefind") {
+        uploadDate = "undefind";
+      } else {
+        for(let i=0; i<rows.length; i++){
+          arr_date.push(rows[i].upload_date)
+        };
+        console.log("router 성공" + arr_date);
+      }
+      res.json(arr_date);
+    } else {
+      console.log("router 실패" + rows);
+    }
+  });
+});
+
+
+
 
 //Day_Data에서 데이터 가져오는 router
 router.post("/take_day_data", (req, res) => {
@@ -299,14 +327,13 @@ router.post("/joindata", (req, res) => {
   let nick = req.body.nick;
   let gender = req.body.gender;
   let birthday = req.body.birthday;
-  // let joinday = req.body.joinday;
-  let user;
+  let phoneNumber = req.body.phoneNumber;
 
-  let sql = "insert into member values(?, ?, ?, ?, sysdate(), ?)"; //테이블 명 member로 바꿀것
+  let sql = "insert into member values(?, ?, ?, ?, sysdate(), ?, ?)";
   
   conn.query(
     sql,
-    [id, pw, nick, gender, birthday],
+    [id, pw, nick, gender, birthday, phoneNumber],
     function (err, rows) {
       if (!err) {
         // err에 아무런 값이 없으면
@@ -323,7 +350,7 @@ router.post("/joindata", (req, res) => {
 
         // res.redirect("/")
       } else {
-        console.log("입력실패" + err.code);
+        console.log("입력실패, " + err.code);
 
       }
     }

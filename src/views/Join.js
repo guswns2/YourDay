@@ -50,7 +50,6 @@ const Join = () => {
 
   // 함수
   // 회원가입 버튼 누룰 시 실행할 함수
-
   const input_data = async () => {
     console.log("input_data 시작");
     await axios

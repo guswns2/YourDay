@@ -44,7 +44,7 @@ def upload_file():
         # Modal에서 받은 엑셀파일
         f = request.files['file']
         # 저장할 경로 + 파일명
-        f.save("./uploads/"+id+secure_filename(f.filename))
+        f.save("./uploads/"+id+"."+secure_filename(f.filename))
         # 파일경로
         file_path = f'./uploads/{id}.xml'
 
@@ -160,6 +160,14 @@ def upload_file():
 
         print(dfrest)
 
+        # 캘린더 데이터 업로드 날짜
+        df_upload = pd.DataFrame([], columns=['id', 'upload_date'])
+        df_upload = df_upload.append({
+                        'id': id,
+                        'upload_date': date
+                    }, ignore_index=True)
+        print(df_upload)
+
         # MySQL 연결
         engine = create_engine("mysql+mysqldb://campus_h_1024_4:smhrd4@project-db-stu.ddns.net:3307/campus_h_1024_4", encoding='utf-8')
         conn = engine.connect()
@@ -170,6 +178,7 @@ def upload_file():
         dfexe.to_sql(name='extime', con=engine, if_exists='append', index=False)
         df_day.to_sql(name='test_happy', con=engine, if_exists='append', index=False)
         dfrest.to_sql(name='rest_vital', con=engine, if_exists='append', index=False)
+        df_upload.to_sql(name='calendar_upload', con=engine, if_exists='append', index=False)
         
         return redirect("http://localhost:3000/admin/user/"+str(day))
 

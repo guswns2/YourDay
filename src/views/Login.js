@@ -116,7 +116,7 @@ const Login = () => {
         {/* 버튼 */}
         <div className="d-grid gap-2" style={{ display: "inline-block" }}>
           <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
-            <span style={text_color}>Login!</span>
+            <span style={text_color}>Login</span>
           </Button>
         </div>
         <div
@@ -137,7 +137,7 @@ const Login = () => {
             type="button"
             onClick={move_find_id_pw} style={button_border_color}
           >
-            <span style={text_color}>Find Id & Pw</span>
+            <span style={text_color}>Find ID & PW</span>
           </Button>
         </div>
       </Form>

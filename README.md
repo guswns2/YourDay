@@ -61,10 +61,13 @@
 - Python Interpreter 선택
   - Ctrl+Shift+p > Python: Select Interpreter > Python 3.9.12('base') ~\anaconda3\python.exe
 
-- model.py 라이브러리 설치
+- Fileupload.py 라이브러리 설치
   - pip install flask
   - pip install pymysql
   - pip install sqlalchemy
-  - pip install bs4
-  - pip install tqdm
-  - pip install flask_cors 
+
+- Flask 서버 실행 오류
+  - Original error was: DLL load failed while importing _multiarray_umath: 지정된 모듈을 찾을 수 없습니다.
+  - Ctrl+Shift+p > Terminal: Select Default profile > Command Prompt
+
+
