@@ -8,6 +8,7 @@ import "../assets/fonts/font.css";
 import Modal from 'react-modal'
 import attend from "../layouts/출석도장.png"
 import {useParams} from 'react-router-dom';
+import axios from "axios";
 
 const cx = classNames.bind(style);
 // react-bootstrap components
@@ -26,8 +27,8 @@ import {
 import { isBlock } from "typescript";
 
 
-
 const Calendar = () => {
+
   const today = {
     year: new Date().getFullYear(), //오늘 연도
     month: new Date().getMonth() + 1, //오늘 월
@@ -200,43 +201,85 @@ const Calendar = () => {
     return dayArr;
   }, [selectedYear, selectedMonth, dateTotalCount]);
 
+
   // 출석도장 찍기
-  const yearmonthday = useParams();
-  useEffect(function(){
-  console.log(yearmonthday)
-  let testYMD = yearmonthday.day;
-  console.log(testYMD)
-
-    // 데이터 입력한 날을 로컬스토리지에 저장
-    let chYMD=[];
-    if((testYMD!= null)){
-      chYMD = localStorage.getItem("YMD");
-      localStorage.setItem("YMD",chYMD+","+testYMD);
-      console.log(chYMD)
-    }
-    let chYMD2 = chYMD.split(",")      
-    console.log(chYMD2)
-
-    // 로컬스토리지에 들어있는 날에 도장 출력
-    let btn = document.getElementsByTagName("button");
-        for(let i=0;i<btn.length;i++){
-          console.log(btn[i].value)
-          if(testYMD==btn[i].value){
-            btn[i].style.backgroundImage=`url(${attend})`;
-          }
-      }
+  let calDate1 = [];
+  let calDate2 =[];
  
-    // 여러 날짜에 데이터 입력시 그동안 찍었던 날들을 전부 가져와서 다시 모두 찍기
-    if(chYMD2 != null){
-      for(let i =0;i<chYMD2.length;i++){
-        for(let j=0;j<btn.length;j++){
-          if(chYMD2[i]==btn[j].value){
-            btn[j].style.backgroundImage=`url(${attend})`; 
+  useEffect(()=>{
+    let btn = document.getElementsByTagName("button");
+    for(let i=0;i<btn.length;i++){
+    btn[i].style.backgroundImage='none';
+    }
+    axios.post("http://localhost:3001/uploadDate",{
+      id:user.id
+    })
+    .then((data)=>{
+      calDate1 = data.data;
+    // 배열에 들어있는 날에 도장 출력
+      for(let j=0; j<calDate1.length; j++){
+        let year = calDate1[j].substring(0, 4);
+        let month = calDate1[j].substring(4, 7);
+        let day = calDate1[j].substring(7, 10);
+  
+        if (month[1] == '0'){
+          month = month[0]+month[2] 
+        };
+        if (day[1] == '0'){
+          day = day[0] + day[2] 
+        };
+        calDate2.push(year+month+day);
+      }
+
+      for(let j=0; j<calDate2.length; j++){
+        for(let i=0;i<btn.length;i++){
+          if(calDate2[j]===btn[i].value){
+            btn[i].style.backgroundImage=`url(${attend})`;
+            break;
           }
-        }
       }
     }
+    }).catch(()=>{
+      console.log("noDate");
+    })
   },[selectedYear,selectedMonth]);
+
+  // const yearmonthday = useParams();
+  // useEffect(function(){
+  // console.log(yearmonthday)
+  // let testYMD = yearmonthday.day;
+  // console.log(testYMD)
+
+  //   // 데이터 입력한 날을 로컬스토리지에 저장
+  //   let chYMD=[];
+  //   if((testYMD!= null)){
+  //     chYMD = localStorage.getItem("YMD");
+  //     localStorage.setItem("YMD",chYMD+","+testYMD);
+  //     console.log(chYMD)
+  //   }
+  //   let chYMD2 = chYMD.split(",")      
+  //   console.log(chYMD2)
+
+  //   // 로컬스토리지에 들어있는 날에 도장 출력
+  //   let btn = document.getElementsByTagName("button");
+  //       for(let i=0;i<btn.length;i++){
+  //         console.log(btn[i].value)
+  //         if(testYMD==btn[i].value){
+  //           btn[i].style.backgroundImage=`url(${attend})`;
+  //         }
+  //     }
+ 
+  //   // 여러 날짜에 데이터 입력시 그동안 찍었던 날들을 전부 가져와서 다시 모두 찍기
+  //   if(chYMD2 != null){
+  //     for(let i =0;i<chYMD2.length;i++){
+  //       for(let j=0;j<btn.length;j++){
+  //         if(chYMD2[i]==btn[j].value){
+  //           btn[j].style.backgroundImage=`url(${attend})`; 
+  //         }
+  //       }
+  //     }
+  //   }
+  // },[selectedYear,selectedMonth]);
 
   // 데이터 입력 팝업창 오픈, 클로즈 함수
   function popOpen (e) {
