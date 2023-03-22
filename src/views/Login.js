@@ -5,22 +5,22 @@ import { useHistory } from "react-router-dom";
 import "../assets/fonts/font.css";
 
 const Login = () => {
-  const joinStyle = {
+  const loginStyle = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     minWidth:"500px"
   };
-  const tema = {
+  const logo = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   }
-  const button_border_color ={
+  const button_style ={
     border : "1px solid black",
     backgroundColor : "white",
     marginTop : "15px",
-    maxWidth:"100px"
+    minWidth:"135px"
   }
   const text_color = {
     color : "black"
@@ -79,11 +79,11 @@ const Login = () => {
 
   return (
     <Row style={{height:"100vh", backgroundColor:"rgb(65, 131, 201)"}}>
-      <Col style={tema}>
+      <Col style={logo}>
         <img style={{width:"80%", height:"auto", maxWidth:"700px",minWidth:"400px"}} src={require("assets/img/yourday-logo.png")} alt="..." />
       </Col>
       
-      <Col style={joinStyle}>
+      <Col style={loginStyle}>
         <div style={{minWidth:"500px"}}>
       <Form onSubmit={handleJoin} className="font">
         {/* ID */}
@@ -110,17 +110,17 @@ const Login = () => {
 
         {/* 버튼 */}
         <Form.Group className="mb-3 d-flex justify-content-around">
-          <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
+          <Button variant="outline-primary" size="lgsm" type="submit" style={button_style}>
             <span style={text_color}>Login</span>
           </Button>
-          <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
+          <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_style}>
             <span style={text_color}>Join</span>
           </Button>
           <Button
             variant="success"
             size="lgsm"
             type="button"
-            onClick={move_find_id_pw} style={button_border_color}
+            onClick={move_find_id_pw} style={button_style}
           >
             <span style={text_color}>Find ID & PW</span>
           </Button>
