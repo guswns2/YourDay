@@ -1,30 +1,35 @@
 import { React, useRef } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "../assets/fonts/font.css";
+import { maxWidth } from "@mui/system";
 
 const Login = () => {
   const joinStyle = {
-    marginTop : "15%",
-    width: "30%",
-    padding : "0%",
-    marginRight: "10%",
-    marginLeft : "10%",
-    display : "inline-block",
-    marginBottom : "40%"
+    // marginTop : "15%",
+    // width: "30%",
+    // padding : "0%",
+    // marginRight: "10%",
+    // marginLeft : "10%",
+    // display : "inline-block",
+    // // marginBottom : "40%"
+    // //margin : "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minWidth:"500px"
   };
   const tema = {
-    marginTop : "10%",
-    width : "30%",
-    padding : "0%",
-    display : "inline-block",
-    marginLeft : "10%"
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
   const button_border_color ={
     border : "1px solid black",
     backgroundColor : "white",
-    marginTop : "15px"
+    marginTop : "15px",
+    maxWidth:"100px"
   }
   const text_color = {
     color : "black"
@@ -81,16 +86,13 @@ const Login = () => {
       });
   };
   return (
-    <div style={{padding : "0%", backgroundColor:"rgb(65, 131, 201)"}}>
-      <div style={tema}>
-      <img width="700px" src={require("assets/img/yourday-logo.png")} alt="..." style={{marginLeft : "20%" ,marginBottom : "30%"}}/>
-      {/* <img src="https://www.goeonair.com/data/cache/public/photos/20221039/art_166459196578_81ba86_370x246_c0.jpg" width={"100%"} height={"100%"}
-      style={{marginBottom : "70%",
-      marginRight : "10%"}}></img> */}
-      </div>
-      <div style={joinStyle}>
-      <h1 className="font">Login</h1>
-      <br></br>
+    <Row style={{height:"100vh", backgroundColor:"rgb(65, 131, 201)"}}>
+      <Col style={tema}>
+        <img style={{width:"80%", height:"auto", maxWidth:"700px",minWidth:"400px"}} src={require("assets/img/yourday-logo.png")} alt="..." />
+      </Col>
+      
+      <Col style={joinStyle}>
+        <div style={{minWidth:"500px"}}>
       <Form onSubmit={handleJoin} className="font">
         {/* ID */}
         <Form.Group className="mb-3">
@@ -114,24 +116,27 @@ const Login = () => {
           />
         </Form.Group>
         {/* 버튼 */}
-        <div className="d-grid gap-2" style={{ display: "inline-block" }}>
-          <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
+        {/* <div className="text-center" style={{ display: "inline-block" }}> */}
+        <Form.Group className="mb-3 d-flex justify-content-around">
+          {/* <Row className="align-items-center"> */}
+          <Button as={Col} variant="success" size="lgsm" type="submit" style={button_border_color}>
             <span style={text_color}>Login</span>
           </Button>
-        </div>
+        {/* </div>
         <div
           className="d-grid gap-2"
           style={{ display: "inline-block", marginLeft: "5%" }}
-        >
-          <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
+        > */}
+          <Button as={Col} variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
             <span style={text_color}>Join</span>
           </Button>
-        </div>
+        {/* </div>
         <div
           className="d-grid gap-2"
           style={{ display: "inline-block", marginLeft: "5%" }}
-        >
+        > */}
           <Button
+          as={Col}
             variant="success"
             size="lgsm"
             type="button"
@@ -139,10 +144,13 @@ const Login = () => {
           >
             <span style={text_color}>Find ID & PW</span>
           </Button>
-        </div>
+          {/* </Row> */}
+        {/* </div> */}
+        </Form.Group>
       </Form>
-    </div>
-    </div>
+      </div>
+    </Col>
+    </Row>
   );
 };
 export default Login;
