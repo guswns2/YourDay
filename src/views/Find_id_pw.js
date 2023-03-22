@@ -1,29 +1,25 @@
 import { React, useRef } from "react";
 import { useHistory } from "react-router";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col} from "react-bootstrap";
 import axios from "axios";
 
 const Find_id_pw = () => {
-  const joinStyle = {
-    marginTop : "15%",
-    width: "30%",
-    padding : "0%",
-    marginRight: "10%",
-    marginLeft : "10%",
-    display : "inline-block",
-    marginBottom : "40%"
+  const loginStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minWidth:"500px"
   };
-  const tema = {
-    marginTop : "10%",
-    width : "30%",
-    padding : "0%",
-    display : "inline-block",
-    marginLeft : "10%"
+  const logo = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
-  const button_border_color ={
+  const button_style ={
     border : "1px solid black",
     backgroundColor : "white",
-    marginTop : "15px"
+    marginTop : "15px",
+    minWidth:"135px"
   }
   const text_color = {
     color : "black"
@@ -61,11 +57,12 @@ const Find_id_pw = () => {
   }
 
   return (
-      <div style={{padding : "0%", backgroundColor:"rgb(65, 131, 201)"}}>
-        <div style={tema}><img width="700px" src={require("assets/img/yourday-logo.png")} alt="..." style={{marginLeft : "20%" ,marginBottom : "30%"}}/></div>
-        <div style={joinStyle}>
-        <h1>Search id & pw</h1>
-        <br></br>
+    <Row style={{height:"100vh", backgroundColor:"rgb(65, 131, 201)"}}>
+    <Col style={logo}>
+        <img style={{width:"80%", height:"auto", maxWidth:"700px",minWidth:"400px"}} src={require("assets/img/yourday-logo.png")} alt="..." />
+        </Col>
+        <Col style={loginStyle}>
+        <div style={{minWidth:"500px"}}>
         <Form onSubmit={handleJoin}>
           {/* ID */}
           <Form.Group className="mb-3">
@@ -80,28 +77,24 @@ const Find_id_pw = () => {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <div className="d-grid gap-2" style={{ display: "inline-block" }}>
-            <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
-              <sapn style={text_color}>Input!</sapn>
+          <Form.Group className="mb-3 d-flex justify-content-around">
+            <Button variant="success" size="lgsm" type="submit" style={button_style}>
+              <span style={text_color}>Input!</span>
             </Button>
-          </div>
-          <div
-            className="d-grid gap-2"
-            style={{ marginLeft: "25px", display: "inline-block" }}
-          >
             <Button
               variant="success"
               size="lgsm"
               type="button"
               onClick={move_login}
-              style={button_border_color}
+              style={button_style}
             >
               <span style={text_color}>Login</span>
             </Button>
-          </div>
+            </Form.Group>
         </Form>
-      </div>
-    </div>
+        </div>
+      </Col>
+    </Row>
   );
 };
 

@@ -1,32 +1,26 @@
 import { React, useRef } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router";
 import axios from "axios";
 
 const Join = () => {
   // 스타일 지정
-  const joinStyle = {
-    marginTop : "10%",
-    width: "30%",
-    padding : "0%",
-    marginRight: "10%",
-    marginLeft : "10%",
-    display : "inline-block",
-    marginBottom : "40%"
+  const loginStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minWidth:"500px"
   };
-
-  const tema = {
-    marginTop : "10%",
-    width : "30%",
-    padding : "0%",
-    display : "inline-block",
-    // backgroundImage : "url('../assets/img/yourday-logo.png')",
-    marginLeft : "10%"
+  const logo = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
-  const button_border_color ={
+  const button_style ={
     border : "1px solid black",
     backgroundColor : "white",
-    marginTop : "15px"
+    marginTop : "5%",
+    minWidth:"135px"
   }
   const text_color = {
     color : "black"
@@ -84,7 +78,6 @@ const Join = () => {
         console.log("join.js check_id result : 출력값", result.data.result);
         if (result.data.result == "아이디 중복x") {
           do_not_id = true;
-          console.log("뛰용뛰용워익워익111111111");
           if (do_not_id) {
             check_phone_number();
           }
@@ -131,12 +124,13 @@ const Join = () => {
   };
 
   return (
-    <div style={{padding : "0%", backgroundColor:"rgb(65, 131, 201)"}}>
-      <div style={tema}><img width="700px" src={require("assets/img/yourday-logo.png")} alt="..." style={{marginBottom : "90%",
-    marginLeft : "20%"}}/></div>
-      <div style={joinStyle}>
-      <h1>회원가입</h1>
-      <br></br>
+    <Row style={{height:"100vh", backgroundColor:"rgb(65, 131, 201)"}}>
+      <Col style={logo}>
+      <img style={{width:"80%", height:"auto", maxWidth:"700px",minWidth:"400px"}} src={require("assets/img/yourday-logo.png")} alt="..." />
+    </Col>
+
+      <Col style={loginStyle}>
+      <div style={{minWidth:"500px"}}>
       <Form>
         {/* ID */}
         <Form.Group className="mb-3">
@@ -150,12 +144,6 @@ const Join = () => {
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-
-        {/* <div className="d-grid gap-2">
-          <Button variant="success" size="sm" onClick={check_id}>
-            ID 중복 확인!
-          </Button>
-        </div> */}
 
         {/* PW */}
         <Form.Group className="mb-3">
@@ -215,16 +203,15 @@ const Join = () => {
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
-        <div className="d-grid gap-2">
-          {/* <Link to="/"> */}
-          <Button variant="success" size="lgsm" type="button" onClick={check_id} style={button_border_color}>
+        <Form.Group className="mb-3 d-flex justify-content-around">
+          <Button variant="success" size="lgsm" type="button" onClick={check_id} style={button_style}>
             <span style={text_color}>Join Us!</span>
           </Button>
-          {/* </Link> */}
-        </div>
+          </Form.Group>
       </Form>
-    </div>
-    </div>
+      </div>
+    </Col>
+    </Row>
   );
 };
 

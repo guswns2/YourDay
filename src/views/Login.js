@@ -19,9 +19,10 @@ const Login = () => {
   const button_style ={
     border : "1px solid black",
     backgroundColor : "white",
-    marginTop : "15px",
+    marginTop : "5%",
     minWidth:"135px"
   }
+
   const text_color = {
     color : "black"
   }
