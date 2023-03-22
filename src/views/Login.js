@@ -60,7 +60,7 @@ const Login = () => {
         pw: pwRef.current.value,
       })
       .then((users) => {
-        console.log();
+        console.log("로그인성공");
         if (users.data != "") {
           try{
             localStorage.setItem("user",JSON.stringify({
@@ -85,6 +85,7 @@ const Login = () => {
         console.log("login.js 실패");
       });
   };
+
   return (
     <Row style={{height:"100vh", backgroundColor:"rgb(65, 131, 201)"}}>
       <Col style={tema}>
@@ -119,7 +120,7 @@ const Login = () => {
         {/* <div className="text-center" style={{ display: "inline-block" }}> */}
         <Form.Group className="mb-3 d-flex justify-content-around">
           {/* <Row className="align-items-center"> */}
-          <Button as={Col} variant="success" size="lgsm" type="submit" style={button_border_color}>
+          <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
             <span style={text_color}>Login</span>
           </Button>
         {/* </div>
@@ -127,7 +128,7 @@ const Login = () => {
           className="d-grid gap-2"
           style={{ display: "inline-block", marginLeft: "5%" }}
         > */}
-          <Button as={Col} variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
+          <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
             <span style={text_color}>Join</span>
           </Button>
         {/* </div>
@@ -136,7 +137,6 @@ const Login = () => {
           style={{ display: "inline-block", marginLeft: "5%" }}
         > */}
           <Button
-          as={Col}
             variant="success"
             size="lgsm"
             type="button"
