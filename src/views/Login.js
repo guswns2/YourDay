@@ -116,26 +116,15 @@ const Login = () => {
             required
           />
         </Form.Group>
+
         {/* 버튼 */}
-        {/* <div className="text-center" style={{ display: "inline-block" }}> */}
         <Form.Group className="mb-3 d-flex justify-content-around">
-          {/* <Row className="align-items-center"> */}
           <Button variant="success" size="lgsm" type="submit" style={button_border_color}>
             <span style={text_color}>Login</span>
           </Button>
-        {/* </div>
-        <div
-          className="d-grid gap-2"
-          style={{ display: "inline-block", marginLeft: "5%" }}
-        > */}
           <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_border_color}>
             <span style={text_color}>Join</span>
           </Button>
-        {/* </div>
-        <div
-          className="d-grid gap-2"
-          style={{ display: "inline-block", marginLeft: "5%" }}
-        > */}
           <Button
             variant="success"
             size="lgsm"
@@ -144,8 +133,6 @@ const Login = () => {
           >
             <span style={text_color}>Find ID & PW</span>
           </Button>
-          {/* </Row> */}
-        {/* </div> */}
         </Form.Group>
       </Form>
       </div>

@@ -10,20 +10,14 @@ import Modal from '@mui/material/Modal';
 
 // react-bootstrap components
 import {
-  Badge,
   Button,
   Card,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
   Col,
   Form,
-  OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap";
-import { data } from "jquery";
 
 // 솔루션 modal 스타일
 const style = {
