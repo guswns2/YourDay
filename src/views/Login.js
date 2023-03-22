@@ -3,18 +3,9 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "../assets/fonts/font.css";
-import { maxWidth } from "@mui/system";
 
 const Login = () => {
   const joinStyle = {
-    // marginTop : "15%",
-    // width: "30%",
-    // padding : "0%",
-    // marginRight: "10%",
-    // marginLeft : "10%",
-    // display : "inline-block",
-    // // marginBottom : "40%"
-    // //margin : "0",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
