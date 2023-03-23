@@ -16,11 +16,10 @@ import "../assets/fonts/font.css";
 
 // react-bootstrap components
 import {
-  Badge,
+  Tabs,
+  Tab,
   Button,
   Card,
-  Navbar,
-  Nav,
   Container,
   Row,
   Col,
@@ -112,17 +111,17 @@ function toggleBtn8(){
 function Help() {
   return (
     <>
-    <Row>
-      <Col>
-    <Button className="font" onClick={toggleBtn7}>FAQ</Button>
-    <Button className="font" onClick={toggleBtn8}>서비스 이용방법</Button>
-    </Col>
-    </Row>
-      <Container fluid style={{display:"block"}} id="btn7">
-      
-      <Row>
-          <Col md="5.5">
-            <Card>
+      <Container className="d-flex justify-content-around" fluid style={{display:"block"}} id="btn7">
+      <Card style={{display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width:"70%"}}>
+      <Tabs
+      defaultActiveKey="faq"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+      >
+      <Tab eventKey="faq" title="FAQ">
               <Card.Header>
                 <Card.Title as="h4">FAQ</Card.Title>
                 <p className="card-category">
@@ -209,15 +208,13 @@ function Help() {
                   </tr>          
                 </table>
               </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+              <Card.Footer>
+                <hr></hr>
+              </Card.Footer>
 
-      <Container fluid style={{display:"none"}} id="btn8">
-      <Row>
-          <Col md="12">
-            <Card>
+
+              </Tab>
+              <Tab eventKey="service" title="서비스 이용 방법">
               <Card.Header>
                 <Card.Title as="h4">서비스 이용방법 안내</Card.Title>
                 <p className="card-category">
@@ -241,13 +238,16 @@ function Help() {
                 <br></br><h>⑥-② 솔루션 클릭 ▶ 관련자료제공</h>
                 <br></br><h>⑦ Day_Data 페이지 ▶ 일별 데이터 조회</h>
                 <br></br><img style={{width:"600px"}} src={img12}/>
-
-                             
-                
               </Card.Body>
+              <Card.Footer>
+                <hr></hr>
+              </Card.Footer>
+              </Tab>
+      </Tabs>
+
             </Card>
-          </Col>
-        </Row>
+      
+
       </Container>
       
     </>
