@@ -3,21 +3,17 @@ import axios from "axios";
 import "../assets/fonts/font.css";
 // react-bootstrap components
 import {
-  Badge,
   Button,
-  Navbar,
-  Nav,
   Container,
   Card,
   Row,
   Col,
-  Header,
-  Body,
-  Footer,
+  Form
 } from "react-bootstrap";
 import ChartistGraph from "react-chartist";
 import { useRef, useEffect, useState } from "react";
-function Maps() {
+
+function History() {
   //스타일 지정
   const icons_css ={
     marginRight : "15px"
@@ -82,38 +78,26 @@ function Maps() {
   
   // 심박수 데이터 가져오는 axios
   const show_vital = async ()=>{
-    // console.log("show_vital 함수 시작");
-    // console.log("post전 보내는 값 : ",selectDayRef.current.value+"%");
     await axios.post("http://localhost:3001/vital",{
-      // id : user.id, 
       selectDay : selectDayRef.current.value+"%",})
     .then((result)=>{
-      // console.log("vital axios 성공",result.data);
       setVital_hours(result.data.s);
       setVital_hearts(result.data.v);
     })
     .catch(()=>{
-      // console.log("vital axios 실패");
       });
-      // console.log("show_vital 함수 종료");
     }
  
     // 운동시간 데이터 가져오는 axios
   const show_extime = async ()=>{
-    // console.log("show_extime 함수 시작");
-    // console.log("post전 보내는 값 : ",selectDayRef.current.value+"%");
     await axios.post("http://localhost:3001/extime",{
-      // id : user.id, 
       selectDay : selectDayRef.current.value+"%",})
     .then((result)=>{
-      // console.log("extime axios 성공",result.data);
       setExtime_hours(result.data.s);
       setExtime_hearts(result.data.v);
     })
     .catch(()=>{
-      // console.log("extime axios 실패");
       });
-      // console.log("show_extime 함수 종료");
     }
 
      // 심박변이 데이터 가져오는 axios
@@ -121,7 +105,6 @@ function Maps() {
     console.log("vital_change 함수 시작");
     console.log("post전 보내는 값 : ",selectDayRef.current.value+"%");
     await axios.post("http://localhost:3001/vital_change",{
-      // id : user.id, 
       selectDay : selectDayRef.current.value+"%",})
     .then((result)=>{
       console.log("vital_change axios 성공",result.data);
@@ -142,12 +125,15 @@ function Maps() {
             <Card.Header><Card.Title as="h4">
             <i className="far fa-calendar-check" style={icons_css}></i>
               조회 날짜 선택</Card.Title>
-            <p className="card-category">선택한 날짜의 데이터를 확인할 수 있습니다.</p></Card.Header>
+            <p className="card-category">선택한 날짜의 데이터를 확인할 수 있습니다.</p>
+            </Card.Header>
             <Card.Body>
+            <Form.Group className="d-flex justify-content-around">
               <input className="font" type="date" max={today} ref={selectDayRef}></input>
               <Button className="font" onClick={select_day} style={{ marginLeft: "3%" }}>
                 확인
               </Button>
+              </Form.Group>
             </Card.Body>
             <Card.Footer>
               <hr></hr>
@@ -426,4 +412,4 @@ function Maps() {
   );
 }
 
-export default Maps;
+export default History;

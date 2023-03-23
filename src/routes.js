@@ -15,11 +15,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from "views/Dashboard.js";
+import Main from "views/Main.js";
 import Calendar from "views/Calendar.js";
 import MyPage from "views/MyPage.js"
-import Typography from "views/Typography.js";
-import Maps from "views/Maps.js";
+import Help from "views/Help.js";
+import History from "views/History.js";
 import Notifications from "views/Notifications.js";
 import Upgrade from "views/Upgrade.js";
 import Icons from "views/Icons.js";
@@ -27,10 +27,10 @@ import Icons from "views/Icons.js";
 const dashboardRoutes = [
 
   {
-    path: "/dashboard",
+    path: "/main",
     name: "Main",
     icon: "nc-icon nc-chart-pie-35",
-    component: Dashboard,
+    component: Main,
     layout: "/admin",
   },
   {
@@ -41,24 +41,24 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/maps",
+    path: "/history",
     name: "History",
     icon: "nc-icon nc-chart-bar-32",
-    component: Maps,
+    component: History,
     layout: "/admin",
   },
   {
-    path: "/MyPage",
+    path: "/mypage",
     name: "My Page",
     icon: "nc-icon nc-single-02",
     component: MyPage,
     layout: "/admin",
   },
   {
-    path: "/typography",
+    path: "/help",
     name: "Help",
     icon: "nc-icon nc-bulb-63",
-    component: Typography,
+    component: Help,
     layout: "/admin",
   },
     // {

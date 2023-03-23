@@ -109,7 +109,7 @@ function toggleBtn8(){
   }
 }         
  
-function Typography() {
+function Help() {
   return (
     <>
     <Row>
@@ -254,4 +254,4 @@ function Typography() {
   );
 }
 
-export default Typography;
+export default Help;

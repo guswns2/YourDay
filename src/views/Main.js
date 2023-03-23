@@ -102,7 +102,7 @@ let yplay;
 
 // 유산소 링크
 
-function Dashboard({match}) {
+function Main({match}) {
     const [Vital, setVital] = useState("")
     const [Vital_time, setVital_time] = useState('')
 
@@ -885,4 +885,4 @@ function Dashboard({match}) {
     </>
   );
 }
-export default Dashboard;
+export default Main;

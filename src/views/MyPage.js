@@ -180,7 +180,11 @@ function MyPage() {
                   </Link>
                   </Form.Group>
                 </Form>
+                
               </Card.Body>
+              <Card.Footer>
+              <hr></hr>
+              </Card.Footer>
             </Card>
    
                   <Modal isOpen={modalIsOpen} id="dataInput" >
@@ -188,21 +192,23 @@ function MyPage() {
                     <table border="">
                       <tr>
                         <td rowSpan="4" style={{backgroundColor:"rgb(65, 131, 201)"}}><img style={{width:"200px"}} src={imgLogo}/></td>
-                        <td>현재 비밀번호 : </td>
+                        <td> 현재 비밀번호 </td>
                         <td><input type="PassWord" placeholder="사용중인 비밀번호" ref={pwRef} required></input></td>
                       </tr>
                       <tr>
-                        <td>변경 비밀번호 : </td>  
+                        <td> 변경 비밀번호 </td>  
                         <td><input type="password" placeholder="변경할 비밀번호" ref={pw1Ref} required></input></td>
                       </tr>
                       <tr>
-                        <td>비밀번호 확인 : </td>
+                        <td> 비밀번호 확인 </td>
                         <td><input type="password" placeholder="변경할 비밀번호 확인" ref={pw2Ref} required></input></td>
                       </tr>
                       <tr align="center">
                         <td colSpan="4">
+                        <Form.Group className="mt-3 mb-3 d-flex justify-content-around">
                         <Button className="font" variant="primary" type="submit" >비밀번호 변경</Button>
                         <Button className="font" variant="primary"onClick={popClose} >닫기</Button>
+                        </Form.Group>
                         </td>
                       </tr>
                     </table>
