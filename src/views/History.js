@@ -8,10 +8,10 @@ import {
   Card,
   Row,
   Col,
-  Form
+  Form,
 } from "react-bootstrap";
 import ChartistGraph from "react-chartist";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 function History() {
   //스타일 지정
@@ -129,8 +129,8 @@ function History() {
             </Card.Header>
             <Card.Body>
             <Form.Group className="d-flex justify-content-around">
-              <input className="font" type="date" max={today} ref={selectDayRef}></input>
-              <Button className="font" onClick={select_day} style={{ marginLeft: "3%" }}>
+              <input style={{width:"60%"}} className="font" type="date" max={today} ref={selectDayRef}></input>
+              <Button className="font" onClick={select_day} style={{ marginLeft: "3%" , width:"30%"}}>
                 확인
               </Button>
               </Form.Group>
@@ -405,9 +405,6 @@ function History() {
             </Card>
           </Col>
       </Row>
-     
-        
-     
     </Container>
   );
 }
