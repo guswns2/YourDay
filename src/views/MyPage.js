@@ -1,32 +1,20 @@
-import {React, useState, useEffect, useRef} from "react";
+import {React, useState, useRef} from "react";
 import Modal from "react-modal";
 import imgLogo from "../assets/img/yourday-logo.png"
 import { Link } from "react-router-dom";
-import { CardDeck } from "reactstrap";
-import { useIsRTL } from "react-bootstrap/esm/ThemeProvider";
 import axios from "axios";
 import "../assets/fonts/font.css";
 // react-bootstrap components
 import {
-  Badge,
   Button,
   Card,
-  Navbar,
-  Nav,
-  Table,
   Container,
   Row,
   Col,
   Form,
 } from "react-bootstrap";
-import { getDefaultFormatCodeSettings, getTextOfJSDocComment, isNamedTupleMember } from "typescript";
 
-function TableList() {
-  // 스타일
-  const button_color = {
-    border : "1px solid gray",
-    color : "gray"
-  } 
+function MyPage() {
 
   const idRef = useRef();
   const pwRef = useRef();
@@ -83,10 +71,9 @@ function TableList() {
   // 비밀번호 변경 완료시 팝업창 꺼졌으면 좋겠음
   const UpdatePWMypage = async(e) => {
     e.preventDefault();
-    console.log("UpdatePWMypage")
     console.log("정보전송 되냐..?",pwRef.current.value)
     if(pw1Ref.current.value == pw2Ref.current.value){
-      console.log("비번변경 진행중입니당")
+      console.log("비번변경 진행중입니다")
       await axios.post("http://localhost:3001/UpdatePW",{
         id : user.id,
         pw1 : pw1Ref.current.value,
@@ -107,8 +94,6 @@ function TableList() {
   // 마이페이지 - 회원탈퇴
   const Withdraw = async(e) => {
     e.preventDefault();
-    console.log("Withdraw");
-    console.log("회원탈퇴할 정보가 전송이 되나??")
     console.log("담긴 정보",user)
     await axios.post("http://localhost:3001/Delete",{
       id  : user.id,
@@ -125,20 +110,18 @@ function TableList() {
   
   return (
     <>
-      <Container fluid>
-        <Row>
-          <Col md="3"></Col>
-          <Col md="6">
-            <Card>
+      <Container fluid style={{ display: "flex",
+    justifyContent: "center",
+    alignItems: "center",}}>
+            <Card style={{maxWidth:"50%", minWidth:"500px"}}>
               <Card.Header>
                 <Card.Title as="h4" className="font">My Page</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form onSubmit={UpdateMypage}>
-                  <Row>
-                    <Col className="pr-1" md="11">
-                      <Form.Group>
-                        <label className="font">아이디</label>
+
+                      <Form.Group className="mb-3">
+                        <Form.Label className="font">아이디</Form.Label>
                         <Form.Control
                           className="font"
                           defaultValue={user.id}
@@ -147,12 +130,8 @@ function TableList() {
                           type="text"
                       ></Form.Control>
                       </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="11">
-                      <Form.Group>
-                        <label className="font">이름</label>
+                      <Form.Group className="mb-3">
+                      <Form.Label className="font">이름</Form.Label>
                         <Form.Control
                         className="font"
                           defaultValue={user.nick}
@@ -162,12 +141,8 @@ function TableList() {
                           required
                       ></Form.Control>
                       </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="11">
-                      <Form.Group>
-                        <label className="font">성별</label>
+                      <Form.Group className="mb-3">
+                      <Form.Label className="font">성별</Form.Label>
                         <Form.Control
                         className="font"
                           defaultValue={user.gender}
@@ -176,12 +151,8 @@ function TableList() {
                           ref={genderRef}
                         ></Form.Control>
                       </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="11">
-                      <Form.Group>
-                        <label className="font">생년월일</label>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="font">생년월일</Form.Label>
                         <Form.Control
                         className="font"
                           defaultValue={user.birth.substr(0, 10)}
@@ -190,12 +161,8 @@ function TableList() {
                           type="text"
                         ></Form.Control>
                       </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-1" md="11">
-                      <Form.Group>
-                        <label className="font">회원가입 날짜</label>
+                      <Form.Group className="mb-4">
+                        <Form.Label className="font">회원가입 날짜</Form.Label>
                         <Form.Control
                         className="font"
                           defaultValue={user.joindate.substr(0, 10)}
@@ -204,21 +171,18 @@ function TableList() {
                           type="text"
                         ></Form.Control>
                       </Form.Group>
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Button onClick={popOpen} className="ChangePW font"  variant="info" style={button_color}>비밀번호 변경</Button>                
-                  <Button onClick={popOpen2} className="Withdrawal font" variant="info" style={button_color}>회원탈퇴</Button>
-                  <Button className="font" variant="info" type="submit" style={button_color}>확인</Button>              
+                  <Form.Group className="mb-3 d-flex justify-content-around">
+                  <Button onClick={popOpen} className="ChangePW font"  variant="primary" >비밀번호 변경</Button>                
+                  <Button onClick={popOpen2} className="Withdrawal font" variant="primary">회원탈퇴</Button>
+                  <Button className="font" variant="primary" type="submit">확인</Button>              
                   <Link to="/Dashboard.js">
-                    <Button className="font" variant="info" style={button_color}>취소</Button>
-                  </Link>                
+                    <Button className="font" variant="primary">취소</Button>
+                  </Link>
+                  </Form.Group>
                 </Form>
               </Card.Body>
             </Card>
-          </Col>
-          <Col md="3"></Col>
-        </Row>
+   
                   <Modal isOpen={modalIsOpen} id="dataInput" >
                     <Form onSubmit={UpdatePWMypage}>
                     <table border="">
@@ -236,7 +200,10 @@ function TableList() {
                         <td><input type="password" placeholder="변경할 비밀번호 확인" ref={pw2Ref} required></input></td>
                       </tr>
                       <tr align="center">
-                        <td colSpan="4"><Button type="submit" >비밀번호 변경</Button><Button onClick={popClose} >닫기</Button></td>
+                        <td colSpan="4">
+                        <Button className="font" variant="primary" type="submit" >비밀번호 변경</Button>
+                        <Button className="font" variant="primary"onClick={popClose} >닫기</Button>
+                        </td>
                       </tr>
                     </table>
                     </Form>
@@ -249,7 +216,7 @@ function TableList() {
                     <br></br>
                     <Form onSubmit={Withdraw}>
                       <table align="center">
-                      <tr><Button onClick={popClose2}>취소</Button><Button type="submit"  style={button_color}>확인</Button></tr>
+                      <tr><Button onClick={popClose2}>취소</Button><Button type="submit">확인</Button></tr>
                       </table>
                     </Form>
                   </Modal>
@@ -257,4 +224,4 @@ function TableList() {
     </>
   );
 }
-export default TableList;
+export default MyPage;

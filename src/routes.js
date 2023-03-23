@@ -17,22 +17,15 @@
 */
 import Dashboard from "views/Dashboard.js";
 import Calendar from "views/Calendar.js";
-import TableList from "views/TableList.js";
+import MyPage from "views/MyPage.js"
 import Typography from "views/Typography.js";
-import Icons from "views/Icons.js";
 import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
 import Upgrade from "views/Upgrade.js";
+import Icons from "views/Icons.js";
 
 const dashboardRoutes = [
-  // {
-  //   upgrade: true,
-  //   path: "/upgrade",
-  //   name: "Upgrade to PRO77",
-  //   icon: "nc-icon nc-alien-33",
-  //   component: Upgrade,
-  //   layout: "/admin",
-  // },
+
   {
     path: "/dashboard",
     name: "Main",
@@ -55,10 +48,10 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/TableList",
+    path: "/MyPage",
     name: "My Page",
     icon: "nc-icon nc-single-02",
-    component: TableList,
+    component: MyPage,
     layout: "/admin",
   },
   {
@@ -68,6 +61,14 @@ const dashboardRoutes = [
     component: Typography,
     layout: "/admin",
   },
+    // {
+  //   upgrade: true,
+  //   path: "/upgrade",
+  //   name: "Upgrade to PRO77",
+  //   icon: "nc-icon nc-alien-33",
+  //   component: Upgrade,
+  //   layout: "/admin",
+  // },
   // {
   //   path: "/icons",
   //   name: "Icons",
