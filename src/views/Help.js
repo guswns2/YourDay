@@ -112,16 +112,14 @@ function Help() {
   return (
     <>
       <Container className="d-flex justify-content-around" fluid style={{display:"block"}} id="btn7">
-      <Card style={{display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width:"70%"}}>
+     <Row>
+      <Col>
       <Tabs
       defaultActiveKey="faq"
       id="uncontrolled-tab-example"
-      className="mb-3"
       >
       <Tab eventKey="faq" title="FAQ">
+      <Card >
               <Card.Header>
                 <Card.Title as="h4">FAQ</Card.Title>
                 <p className="card-category">
@@ -211,10 +209,11 @@ function Help() {
               <Card.Footer>
                 <hr></hr>
               </Card.Footer>
-
-
+              </Card>
               </Tab>
+
               <Tab eventKey="service" title="서비스 이용 방법">
+              <Card>
               <Card.Header>
                 <Card.Title as="h4">서비스 이용방법 안내</Card.Title>
                 <p className="card-category">
@@ -242,10 +241,12 @@ function Help() {
               <Card.Footer>
                 <hr></hr>
               </Card.Footer>
+              </Card>
               </Tab>
       </Tabs>
-
-            </Card>
+      </Col>
+</Row>
+  
       
 
       </Container>

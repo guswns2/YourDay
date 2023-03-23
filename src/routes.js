@@ -20,9 +20,6 @@ import Calendar from "views/Calendar.js";
 import MyPage from "views/MyPage.js"
 import Help from "views/Help.js";
 import History from "views/History.js";
-import Notifications from "views/Notifications.js";
-import Upgrade from "views/Upgrade.js";
-import Icons from "views/Icons.js";
 
 const dashboardRoutes = [
 
