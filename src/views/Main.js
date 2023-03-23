@@ -121,7 +121,6 @@ function Main({match}) {
 
     // 행복 점수 및 일기 데이터 가져오는 axios
     const vital = match.params.vital;
-    console.log('심박수 : ', vital)
  
     // 심박수
     const sim = async ()=>{
@@ -140,19 +139,14 @@ function Main({match}) {
         heartSa = data.data[5].heart;
         heartSu = data.data[6].heart;
 
-        for(let i=0; i<data.data.length; i++){
-          console.log(data.data[i].date);
-        }
-
         setVital(data.data)
         setVital_time(data.data.Vital_time)
         
       }).catch(()=>{
-        console.log("test");
+        console.log("심박수 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?")
       sim();
     },[])
 
@@ -160,9 +154,6 @@ function Main({match}) {
     const sim_ch = async ()=>{
       axios.post("http://localhost:3001/Dashboard2",{})
       .then((data)=>{
-        for(let i=0; i<data.data.length; i++){
-          console.log(data.data[i].stress);
-        }
         chM = data.data[0].stress;
         chT = data.data[1].stress;
         chW = data.data[2].stress;
@@ -175,11 +166,10 @@ function Main({match}) {
         setCh_time(data.data.Ch_time)
 
       }).catch(()=>{
-        console.log("test");
+        console.log("심박변이 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?2")
       sim_ch();
     },[])
     
@@ -188,7 +178,6 @@ function Main({match}) {
       axios.post("http://localhost:3001/Dashboard7",{})
       .then((data)=>{
         let restsum = 0;
-        console.log("안심 : ", data.data[5].rest)
 
         for(let i=0; i<data.data.length; i++){
           restsum += data.data[i].rest;
@@ -202,19 +191,15 @@ function Main({match}) {
         restSa = data.data[5].rest;
         restSu = data.data[6].rest;
 
-        for(let i=0; i<data.data.length; i++){
-          console.log(data.data[i].date);
-        }
 
         setRest(data.data)
         setRest_time(data.data.rt)
         
       }).catch(()=>{
-        console.log("test");
+        console.log("안정시 심박수 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?")
       rest();
     },[])
 
@@ -234,16 +219,15 @@ function Main({match}) {
         extF = data.data[4].ext;
         extSa = data.data[5].ext;
         extSu = data.data[6].ext;
-        console.log("운동시간 : ",extM)
+
         setExt(data.data)
         setExt_time(data.data.Ext_time)
 
       }).catch(()=>{
-        console.log("test");
+        console.log("운동시간 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?3")
       extime();
     },[])
 
@@ -251,7 +235,6 @@ function Main({match}) {
     const dayhappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard4",{})
       .then((data)=>{
-        console.log("test : ",data.data[0].dsleep);
         
         dsleep = data.data[0].dsleep;
         dgoback = data.data[0].dgoback;
@@ -263,20 +246,17 @@ function Main({match}) {
         setDdata(data.data)
 
       }).catch(()=>{
-        console.log("test");
+        console.log("만족도 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?3")
       dayhappy();
     },[])
   
     // 어제 만족도
     const yhappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard5",{})
-      .then((data)=>{
-        console.log("test어제 : ",data.data[0].ysleep);
-        
+      .then((data)=>{       
         ysleep = data.data[0].ysleep;
         ygoback = data.data[0].ygoback;
         ystudy = data.data[0].ystudy;
@@ -287,11 +267,10 @@ function Main({match}) {
         setYdata(data.data)
 
       }).catch(()=>{
-        console.log("test");
+        console.log("어제 만족도 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?3")
       yhappy();
     },[])
 
@@ -300,13 +279,6 @@ function Main({match}) {
       axios.post("http://localhost:3001/Dashboard6",{})
       .then((data)=>{
         wtotal =Number(data.data[0].wsleep)+Number(data.data[0].wgoback)+Number(data.data[0].wstudy)+Number(data.data[0].weat)+Number(data.data[0].wexe)+Number(data.data[0].wplay);
-        console.log("주간데이터합 : ",wtotal)
-        console.log("test수면 : ",Number(data.data[0].wsleep)/wtotal*100);
-        console.log("test등하교 : ",Number(data.data[0].wgoback)/wtotal*100);
-        console.log("test학업 : ",Number(data.data[0].wstudy)/wtotal*100);
-        console.log("test식사 : ",Number(data.data[0].weat)/wtotal*100);
-        console.log("test운동 : ",Number(data.data[0].wexe)/wtotal*100);
-        console.log("test여가 : ",Number(data.data[0].wplay)/wtotal*100);
         
         wsleep = Number(data.data[0].wsleep)/wtotal*100;
         wgoback = Number(data.data[0].wgoback)/wtotal*100;
@@ -318,11 +290,10 @@ function Main({match}) {
         setYdata(data.data)
 
       }).catch(()=>{
-        console.log("test");
+        console.log("주간 만족도 평균 에러");
       })
     }
     useEffect(()=>{
-      console.log("되나?3")
       whappy();
     },[])
 
@@ -363,7 +334,6 @@ function Main({match}) {
   }
 
   function open1(){
-    console.log('open1')
     window.open("https://www.youtube.com/results?search_query=%EB%95%85%EB%81%84%EB%B6%80%EB%B6%80+%EC%9C%A0%EC%82%B0%EC%86%8C%EC%9A%B4%EB%8F%99", "_blank","fullscreen=yes");
   }
   
@@ -588,12 +558,13 @@ function Main({match}) {
             </Card>
           </Col>
         </Row>
+        
         <Row>
         <Col md="12">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">주간 하루 평균 데이터</Card.Title>
-                <p className="card-category">스마트워치 데이터</p>
+                <p className="card-category">스마트워치 건강 앱 항목별 추이</p>
               </Card.Header>
               <Card.Body>
                 <div className="ct-chart" id="chartHours">
@@ -650,12 +621,10 @@ function Main({match}) {
               </Card.Body>
               <Card.Footer>
                 <div className="legend font">
-                  <i className="fas fa-circle text-info"></i>
-                  심박수 <i className="fas fa-circle text-danger"></i>
-                  심박변이 <i className="fas fa-circle text-bgDeepPurple"></i>
-                  안정시 심박수 <i className="fas fa-circle text-warning"></i>
-                  운동량
-                  
+                  <i className="fas fa-circle text-info"></i>심박수
+                  <i className="fas fa-circle text-danger"></i>심박변이
+                  <i className="fas fa-circle text-bgDeepPurple"></i>안정시 심박수
+                  <i className="fas fa-circle text-warning"></i>운동량
                 </div>
                 <hr></hr>
                 <div className="stats font">
@@ -665,7 +634,6 @@ function Main({match}) {
               </Card.Footer>
             </Card>
           </Col>
-          
         </Row>
 
         <Row>
@@ -752,7 +720,7 @@ function Main({match}) {
                   <i className="fas fa-circle text-danger"></i>출퇴근
                   <i className="fas fa-circle text-warning"></i>업무
                   <br></br>
-                  <i id="circle">●</i>식사시간                   
+                  <i className="fas fa-circle text-secondary" style={{color:"purple"}}></i>식사시간                   
                   <i className="fas fa-circle text-success"></i>운동시간 
                   <i className="fas fa-circle text-primary"></i>여가시간             
                 </div>
