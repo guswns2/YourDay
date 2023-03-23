@@ -17,14 +17,13 @@ const Login = () => {
     alignItems: "center"
   }
   const button_style ={
-    border : "1px solid black",
-    backgroundColor : "white",
+    backgroundColor : "#0d6efd",
     marginTop : "5%",
     minWidth:"135px"
   }
 
   const text_color = {
-    color : "black"
+    color : "white"
   }
   // 변수
   const idRef = useRef();
@@ -111,18 +110,13 @@ const Login = () => {
 
         {/* 버튼 */}
         <Form.Group className="mb-3 d-flex justify-content-around">
-          <Button variant="outline-primary" size="lgsm" type="submit" style={button_style}>
+          <Button variant="primary" size="lgsm" style={button_style} type="submit">
             <span style={text_color}>Login</span>
           </Button>
-          <Button variant="success" size="lgsm" onClick={move_join} type="button" style={button_style}>
+          <Button variant="primary" size="lgsm" onClick={move_join} type="button" style={button_style}>
             <span style={text_color}>Join</span>
           </Button>
-          <Button
-            variant="success"
-            size="lgsm"
-            type="button"
-            onClick={move_find_id_pw} style={button_style}
-          >
+          <Button variant="primary" size="lgsm" type="button" onClick={move_find_id_pw} style={button_style}>
             <span style={text_color}>Find ID & PW</span>
           </Button>
         </Form.Group>

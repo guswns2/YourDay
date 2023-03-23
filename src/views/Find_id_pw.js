@@ -16,13 +16,12 @@ const Find_id_pw = () => {
     alignItems: "center"
   }
   const button_style ={
-    border : "1px solid black",
-    backgroundColor : "white",
-    marginTop : "15px",
+    backgroundColor : "#0d6efd",
+    marginTop : "5%",
     minWidth:"135px"
   }
   const text_color = {
-    color : "black"
+    color : "white"
   }
 
   const history = useHistory();
@@ -78,16 +77,10 @@ const Find_id_pw = () => {
           </Form.Group>
 
           <Form.Group className="mb-3 d-flex justify-content-around">
-            <Button variant="success" size="lgsm" type="submit" style={button_style}>
-              <span style={text_color}>Input!</span>
+            <Button variant="primary" size="lgsm" type="submit" style={button_style}>
+              <span style={text_color}>Find</span>
             </Button>
-            <Button
-              variant="success"
-              size="lgsm"
-              type="button"
-              onClick={move_login}
-              style={button_style}
-            >
+            <Button variant="primary" size="lgsm" type="button" onClick={move_login} style={button_style}>
               <span style={text_color}>Login</span>
             </Button>
             </Form.Group>
