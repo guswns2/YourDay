@@ -3,23 +3,23 @@ button {
 }
 
 
-
+/* 
 .cardbody{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-}
+} */
 
 /* 달력 전체 */
-.cldDiv {
+/* .cldDiv {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   height: auto;
-}
+} */
 .container {
   width: 70vw;
-  height: 30vw;
+  height: 30vh;
   min-height: 700px;
   margin: auto;
   position: relative;

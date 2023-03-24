@@ -13,18 +13,13 @@ import axios from "axios";
 const cx = classNames.bind(style);
 // react-bootstrap components
 import {
-  Badge,
-  Button,
   Card,
   Form,
-  Navbar,
-  Nav,
   Table,
   Container,
   Row,
   Col,
 } from "react-bootstrap";
-import { isBlock } from "typescript";
 
 
 const Calendar = () => {
@@ -262,7 +257,6 @@ const Calendar = () => {
   return(
   // 달력 전체  
   <div className="container">
-  
     {/* 달력 타이틀 */}
     <div className="title">
       <h4>
@@ -398,9 +392,9 @@ function User() {
                 <p className="card-category">날짜에 행복도를 입력하고 출석도장을 찍어보세요!</p>
               </Card.Header>
               <Card.Body className="cardbody">
-                <div className="cldDiv">
+                {/* <div className="cldDiv"> */}
                   <Calendar></Calendar>
-                </div>
+                {/* </div> */}
               </Card.Body>
               <Card.Footer>         
                 <br></br>
