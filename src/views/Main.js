@@ -725,8 +725,8 @@ function Main({match}) {
                   <i className="fas fa-circle text-primary"></i>여가시간             
                 </div>
                 <hr></hr>
-                <div className="stats font">
-                  <i className="far fa-clock"></i>
+                <div className="stats font" style={{fontSize:"14px"}}>
+                <i className="fas fa-check"></i>
                   일주일마다 비교
                 </div>
               </Card.Body>
@@ -842,7 +842,7 @@ function Main({match}) {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats font">
-                  <i className="now-ui-icons loader_refresh spin"></i>
+                <i className="fas fa-check"></i>
                   일주일마다 초기화
                 </div>
               </Card.Footer>
