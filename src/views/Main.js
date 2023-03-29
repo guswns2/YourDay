@@ -278,8 +278,8 @@ function Main({match}) {
     const whappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard6",{})
       .then((data)=>{
+        console.log(data.data[0])
         wtotal =Number(data.data[0].wsleep)+Number(data.data[0].wgoback)+Number(data.data[0].wstudy)+Number(data.data[0].weat)+Number(data.data[0].wexe)+Number(data.data[0].wplay);
-        
         wsleep = Number(data.data[0].wsleep)/wtotal*100;
         wgoback = Number(data.data[0].wgoback)/wtotal*100;
         wstudy = Number(data.data[0].wstudy)/wtotal*100;
@@ -288,6 +288,8 @@ function Main({match}) {
         wplay = Number(data.data[0].wplay)/wtotal*100+0.000000000000008;
         
         setYdata(data.data)
+
+        console.log(wsleep);
 
       }).catch(()=>{
         console.log("주간 만족도 평균 에러");
@@ -710,7 +712,14 @@ function Main({match}) {
                   className="font"
                     data={{
                       labels:["수면","출퇴근","업무","식사","운동","여가"],
-                      series: [Number(wsleep),Number(wgoback),Number(wstudy),Number(weat),Number(wexe),Number(wplay)]
+                      series: [
+                        Number(wsleep)>=1?Number(wsleep):1,
+                        Number(wgoback)>=1?Number(wgoback):1,
+                        Number(wstudy)>=1?Number(wstudy):1,
+                        Number(weat)>=1?Number(weat):1,
+                        Number(wexe)>=1?Number(wexe):1,
+                        Number(wplay)>=1?Number(wplay):1
+                      ]
                     }}
                     type="Pie"
                   />

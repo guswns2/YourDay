@@ -116,8 +116,7 @@ router.post('/Dashboard6', (req,res) => {
   let sql = 'SELECT DATE(Date) weekhappy, avg(sleep) wsleep, avg(goback) wgoback, avg(study) wstudy, avg(eat) weat, avg(exe) wexe, avg(play) wplay FROM test_happy WHERE Date BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() GROUP BY `weekhappy`'
   conn.query(sql, (err, data) => {
     if(!err) {
-      console.log(1)
-      console.log("성공")
+      console.log("파이 성공 : ", data)
         res.send(data)
     } else {
       console.log(err)

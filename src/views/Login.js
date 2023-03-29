@@ -66,7 +66,7 @@ const Login = () => {
           }catch(error){
             console.log("storage 에러입네다")
           }
-          history.push("/admin/dashboard");
+          history.push("/admin/main");
         } else {
           alert("아이디 및 비밀번호를 잘못 입력하셨습니다.");
           history.push("/");

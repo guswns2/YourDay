@@ -39,13 +39,10 @@ function Sidebar({ color, image, routes }) {
       <div className="sidebar-wrapper">
         <div className="logo d-flex align-items-center justify-content-start">
           <a
-           onClick={()=>window.location.replace("/admin/dashboard")}
+           onClick={()=>window.location.replace("/admin/main")}
             className="simple-text logo-mini mx-1"
           >
-            
             <img width="141px" src={require("assets/img/yourday-logo.png")} alt="로고" />
-            
-           
           </a>
           
         </div>
