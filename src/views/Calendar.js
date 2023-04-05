@@ -1,13 +1,10 @@
 
-import ChartistGraph from "react-chartist";
-
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import classNames from "classnames/bind";
 import style from "../style/calendar.css";
 import "../assets/fonts/font.css";
 import Modal from 'react-modal'
 import attend from "../layouts/출석도장.png"
-import {useParams} from 'react-router-dom';
 import axios from "axios";
 
 const cx = classNames.bind(style);
