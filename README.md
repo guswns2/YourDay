@@ -9,7 +9,7 @@
 
 
 ## ⚙ 개발 환경
-- Web : Javascript, React, CSS
+- Web : Javascript, React
 - Server : Node.js (v16.17.1), Flask
 - DataBase : MySQL
 - MachineLearning : Python (v3.9.12)
@@ -69,5 +69,8 @@
 - Flask 서버 실행 오류
   - Original error was: DLL load failed while importing _multiarray_umath: 지정된 모듈을 찾을 수 없습니다.
   - Ctrl+Shift+p > Terminal: Select Default profile > Command Prompt
+
+- 프로그램 실행
+  - npm start
 
 
