@@ -15,9 +15,9 @@ let dbInfo = {
   // 본인 DB 정보 채우기
   host: "127.0.0.1",
     user: "root",
-    password: "123456",
+    password: "1234",
     port: "3306",
-    database: "nodejs_db",
+    database: "yourday",
 };
 let SMS = new session_mysql_save(dbInfo);
 app.use(
@@ -31,4 +31,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(router);
-app.listen(3001);
+app.listen(3001, () => {
+  console.log("Server is running. Port: 3001")
+});
