@@ -6,11 +6,11 @@
 
 
 ## ⚙ 개발 환경
-- Web : Javascript, React
+- Web : Javascript, React (v17.0.2)
 - Server : Node.js (v16.17.1), Flask
 - DataBase : MySQL
 - MachineLearning : Python (v3.9.12)
-- Code Editor : VisualStudio Code, Jupyter, MySQL WorkBench
+- Code Editor : VSCode, Jupyter, DBeaver
 
 
 ## 🔍 주요 기능
@@ -49,25 +49,4 @@
 
 
 ## 🔁 프로젝트 설치 및 실행
-- pm2 설치
-  - npm install pm2 -g
-
-- node_module 설치
-  - npm install -f (v8.15.0)
-
-- Python Interpreter 선택
-  - Ctrl+Shift+p > Python: Select Interpreter > Python 3.9.12('base') ~\anaconda3\python.exe
-
-- Fileupload.py 라이브러리 설치
-  - pip install flask
-  - pip install pymysql
-  - pip install sqlalchemy
-
-- Flask 서버 실행 오류
-  - Original error was: DLL load failed while importing _multiarray_umath: 지정된 모듈을 찾을 수 없습니다.
-  - Ctrl+Shift+p > Terminal: Select Default profile > Command Prompt
-
-- 프로그램 실행
-  - npm start
-
-
+https://www.notion.so/YourDay-164ffb5eb35680b08da2f7e298a9d769?pvs=4
