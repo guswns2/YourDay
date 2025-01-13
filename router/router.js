@@ -7,14 +7,13 @@ const { join } = require("path");
 const path = require("path");
 
 let conn = mysql.createConnection({
-  // 나의 DB 정보
-
+  // DB 정보
   host: "project-db-stu.ddns.net",
-    user: "campus_h_1024_4",
-    password: "smhrd4",
-    port: "3307",
-    database: "campus_h_1024_4",
-    dateStrings:"date"
+  user: "campus_h_1024_4",
+  password: "smhrd4",
+  port: "3307",
+  database: "campus_h_1024_4",
+  dateStrings:"date"
 });
 
 // 메인페이지 심박수

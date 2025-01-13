@@ -12,12 +12,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors());
 
 let dbInfo = {
-  // 본인 DB 정보 채우기
-  host: "127.0.0.1",
-    user: "root",
-    password: "1234",
-    port: "3306",
-    database: "yourday",
+  // DB 정보
+  host: "project-db-stu.ddns.net",
+  user: "campus_h_1024_4",
+  password: "smhrd4",
+  port: "3307",
+  database: "campus_h_1024_4",
 };
 let SMS = new session_mysql_save(dbInfo);
 app.use(
