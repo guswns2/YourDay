@@ -9,7 +9,7 @@
 - Web : Javascript, React (v17.0.2)
 - Server : Node.js (v16.17.1), Flask
 - DataBase : MySQL
-- MachineLearning : Python (v3.9.12)
+- MachineLearning : Python (v3.13.1)
 - Code Editor : VSCode, Jupyter, DBeaver
 
 
