@@ -643,7 +643,7 @@ function Main({match}) {
             <Card>
               <Card.Header>
                 <Card.Title as="h4">어제와 오늘의 행복도</Card.Title>
-                <p className="card-category">어제와 오늘의 행복도 비교</p>
+                <p className="card-category">어제와 오늘의 주간 행복도 평균 비교</p>
               </Card.Header>
               <br></br>
               <Card.Body>
